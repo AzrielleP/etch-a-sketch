@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+.container{
+    margin: 2em;
+    height: 90vh;
+    width: 90vh;
+    border: 1px solid black;
+    display: grid;
+}
+
+.box{
+    border: 1px solid black;
+}
