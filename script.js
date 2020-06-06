@@ -1,7 +1,5 @@
 let gridNumber = +prompt("What grid size do you want?");
 let container = document.querySelector(".container");
-let clear = document.querySelector(".clear");
-
 let buttons = document.querySelector(".buttonContainer");
 
 createGrid(gridNumber);
@@ -38,9 +36,9 @@ function draw(pen){
             else if (pen == "rainbowPen"){
                 event.target.style.backgroundColor = useRainbowPen();
             }
-            //if (pen == "pencil"){
-                //event.target.style.backgroundColor = usePencil();
-            //}
+            /*else if (pen == "pencil"){
+                event.target.style.backgroundColor = usePencil();       
+            }*/
         event.stopPropagation();
         }
     })   
