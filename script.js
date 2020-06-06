@@ -7,7 +7,7 @@ let blackPen = document.querySelector(".blackPen");
 let buttons = document.querySelector(".buttonContainer");
 
 createGrid(gridNumber);
-startDraw();
+draw();
 
 function createGrid(gridNumber){
     let div;
@@ -22,62 +22,49 @@ function createGrid(gridNumber){
 }
 
 function startDraw(){
-    buttons.addEventListener("click", choosePen);
-
-    function choosePen(event){
+    buttons.addEventListener("click", event=>{
         let chosenPen = event.target.className;
         if (chosenPen == "clear"){
             clearCanvas();
         }
-        else if (chosenPen == "blackPen"){
-            useBlackPen();
-        }
-        else if(chosenPen == "rainbowPen"){
-            useRainbowPen();
-        }
-        else if(chosenPen == "pencil"){
-            usePencil();
-        }
-    }
-}
-
-function clearCanvas(){
-    clear.addEventListener("click", ()=>{
-        let all = document.querySelectorAll(".box");
-        for (let i = 0; i < all.length; i++){
-            all[i].style.backgroundColor = "white";
-        }
-    }) 
-}
-
-function useRainbowPen(){
-    rainbowPen.addEventListener("click", () => {
-        let hex = "0123456789ABCDEF";
-        let bgColor = "#";
-        for(let i =0; i < 6; i++){
-            bgColor += hex[Math.floor(Math.random() * hex.length)];
-        }
-        draw(bgColor);
-    })
-}
-
-function randomizeColor(){
-    container.addEventListener("")
-}
-
-function useBlackPen(){
-    draw("black");
-}
-
-function usePencil(){
-
+        else draw(chosenPen); 
+    });
 }
 
 function draw(pen){
     container.addEventListener("mouseover", event=>{
         if(event.target !== event.currentTarget){
-            event.target.style.backgroundColor=pen;
+            startDraw();
+           if (pen == "blackPen"){
+                event.target.style.backgroundColor= "black";
+                }
+            if(pen == "rainbowPen"){
+                event.target.style.backgroundColor = useRainbowPen();
             }
-            event.stopPropagation();
-    })
+        event.stopPropagation();
+        }
+    })   
 }
+
+function clearCanvas(){
+    let all = document.querySelectorAll(".box");
+    for (let i = 0; i < all.length; i++){
+        all[i].style.backgroundColor = "white";
+    }
+}
+
+function useRainbowPen(){
+    let hex = "0123456789ABCDEF";
+    let bgColor = "#";
+    for(let i =0; i < 6; i++){
+        bgColor += hex[Math.floor(Math.random() * hex.length)];
+    }
+    return bgColor;
+}
+
+
+function usePencil(){
+    
+}
+
+
