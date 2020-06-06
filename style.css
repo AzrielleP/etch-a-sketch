@@ -7,6 +7,10 @@
 body{
     margin:0;
     padding:0;
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 .container{
@@ -15,4 +19,13 @@ body{
     width: 90vh;
     border: 1px solid black;
     display: grid;
+}
+
+.buttonContainer button{
+    display: block;
+    outline: none;
+    margin: 2em;
+    padding: 1em;
+    width: 9.5em;
+    font-size: 1em;
 }

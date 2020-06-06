@@ -1,13 +1,11 @@
 let gridNumber = +prompt("What grid size do you want?");
 let container = document.querySelector(".container");
 let clear = document.querySelector(".clear");
-let rainbowPen = document.querySelector(".rainbowPen");
-let pencil = document.querySelector(".pencil");
-let blackPen = document.querySelector(".blackPen");
+
 let buttons = document.querySelector(".buttonContainer");
 
 createGrid(gridNumber);
-draw();
+startDraw();
 
 function createGrid(gridNumber){
     let div;
@@ -27,20 +25,22 @@ function startDraw(){
         if (chosenPen == "clear"){
             clearCanvas();
         }
-        else draw(chosenPen); 
+        else draw(chosenPen);
     });
 }
 
 function draw(pen){
     container.addEventListener("mouseover", event=>{
         if(event.target !== event.currentTarget){
-            startDraw();
            if (pen == "blackPen"){
                 event.target.style.backgroundColor= "black";
                 }
-            if(pen == "rainbowPen"){
+            else if (pen == "rainbowPen"){
                 event.target.style.backgroundColor = useRainbowPen();
             }
+            //if (pen == "pencil"){
+                //event.target.style.backgroundColor = usePencil();
+            //}
         event.stopPropagation();
         }
     })   
@@ -62,9 +62,5 @@ function useRainbowPen(){
     return bgColor;
 }
 
-
-function usePencil(){
-    
-}
 
 
