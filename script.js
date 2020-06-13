@@ -47,7 +47,7 @@ function draw(pen){
 function clearCanvas(){
     let all = document.querySelectorAll(".box");
     for (let i = 0; i < all.length; i++){
-        all[i].style.backgroundColor = "white";
+        all[i].style.backgroundColor = "rgba(196, 196, 196)";
     }
 }
 
